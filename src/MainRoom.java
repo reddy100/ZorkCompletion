@@ -3,8 +3,11 @@ import java.util.Scanner;
 public class MainRoom {
 	static Scanner darkly = new Scanner(System.in);
 	static boolean roomFound = false;
+	static int roomCount = 0;
+	
 	private static void roomDescribe(String where, String[] stuff, String directions)
 	{
+		roomCount++;
 		System.out.println("You are in " + where);
 		for (String thing : stuff) {
 			System.out.println("You see " + thing);
@@ -37,8 +40,9 @@ public class MainRoom {
 			if(ghost==1)
 			{
 				System.out.println("You are being followed by a ghost");
-
 			}
+			roomCount--;
+			System.out.println("You have walked through "+roomCount+" number of rooms");
 			System.exit(0);
 		}
 		} while (1==1);
